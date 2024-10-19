@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+  <link rel="stylesheet" href="./build/style.css">
+
+</head>
+<body class="font-primary bg-primary-white flex flex-col border-2 min-h-screen">
+  <header>
+    <section class="flex gap-12 m-4 justify-between">
+      <h1 class="font-bold text-3xl leading-[1] text-primary-dark self-start">
+        <a href="/">snap</a>
+      </h1>
+      <!-- Large Screen Nav -->
+      <nav id="large-screen-menu" class="hidden md:flex flex-1 justify-between text-primary-gray  top-2">
+        <ul class="flex gap-6 ">
+          <li>
+            <a href="#" class="hover:text-primary-dark relative" id="features">
+              <span>Features</span>
+              <img src="images/icon-arrow-down.svg" alt="open-menu-icon" class="inline">
+            </a>
+
+            <!-- Features DropDown -->
+
+            <ul class="mt-6 bg-primary-white p-3 shadow-2xl space-y-2 rounded-xl relative -left-10 hidden" data-features z-20>
+              <li>
+                <a href="#">
+                  <img src="images/icon-todo.svg" alt="Todo List."/ class="inline mr-2">
+                  <span>Todo List</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/icon-calendar.svg" alt="calendar." class="inline mr-2">
+                  <span>Calendar</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/icon-reminders.svg" alt="reminders." class="inline mr-2">
+                  <span>Reminders</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="images/icon-planning.svg" alt="planning."/ class="inline mr-2">
+                  <span>Planning</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="hover:text-primary-dark relative" id="company">
+              <span>Company</span>
+              <img src="images/icon-arrow-down.svg" alt="open-menu-icon" class="inline">
+            </a>
+
+            <!-- Company DropDown -->
+
+            <ul class="mt-6 bg-primary-white p-3 shadow-2xl space-y-2 rounded-xl  hidden" data-company>
+              <li>
+                <a href="#">
+                  <span>History</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span>Our Team</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span>Blog</span>
+                </a>
+              </li>
+            </ul>
+            
+          </li>
+          <li>
+            <a href="#" class="hover:text-primary-dark relative">
+              <span>Careers</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-primary-dark relative">
+              <span>About</span>
+            </a>
+          </li>
+      
+        </ul>
+        <ul class="flex gap-6">
+          <li>
+            <a href="#" class="hover:text-primary-dark relative">Login</a>
+          </li>
+          <li class="border-2 h-min rounded-xl p-2 hover:border-primary-dark relative -top-2 hover:text-primary-dark">
+            <a href="#" class="relative">
+              Register
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button id="open-mobile-menu" class="md:hidden">
+        <span class="font-bold text-xl"> &#9776;</span>
+      </button>
+    </section>
+
+    <!-- Mobile Menu -->
+    <nav id ="mobile-menu" class="hidden fixed top-0 right-0 w-2/3 h-screen md:hidden z-10">
+      <section class="p-4 flex flex-col h-full bg-primary-white">
+        <button id="close-mobile-menu" class="font-medium text-7xl self-end">
+          &times;
+        </button>
+        <ul class="z-10 space-y-2 text-primary-gray">
+            <li id="mobile-features" class="hover:text-primary-dark">
+              <a href="#">
+                <span>Features</span>
+                <img src="images/icon-arrow-down.svg" alt="" class="inline">
+              </a>
+
+              <ul class="space-y-2 pl-4 my-4 hidden">
+                <li>
+                  <a href="#">
+                    <img src="images//icon-todo.svg" alt="todo ICon" class="inline pr-2">
+                    <span>Todo List</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="images//icon-calendar.svg" alt="calendar ICon" class="inline pr-2">
+                    <span>Calendar</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="images//icon-reminders.svg" alt="reminders ICon" class="inline">
+                    <span>Reminders</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="images//icon-planning.svg" alt="planning ICon" class="inline">
+                    <span>Planning</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li id="mobile-company" class="hover:text-primary-dark">
+              <a href="#">
+                <span>Company</span>
+                <img src="images/icon-arrow-down.svg" alt="" class="inline">
+              </a>
+
+              <ul class="pl-4 hidden">
+                <li>History</li>
+                <li>Our Team</li>
+                <li>Blog</li>
+              </ul>
+            </li>
+            <li class="hover:text-primary-dark">
+              <a href="#">
+                <span>Careers</span>
+              </a>
+            </li>
+            <li class="pb-4 hover:text-primary-dark">
+              <a href="#">
+                <span>About</span>
+              </a>
+            </li>
+            <li class="text-center hover:text-primary-dark">
+              <a href="#">
+                <span>Login</span>
+              </a>
+            </li>
+            <li class="border-2 border-primary-gray text-center p-2 rounded-lg hover:text-primary-dark hover:border-primary-dark">
+              <a href="#">
+                <span>Register</span>
+              </a>
+            </li>
+        </ul>
+      </section>
+      <div class=" hiddn -z-10 fixed top-0 right-0 w-full h-full bg-primary-gray opacity-40"></div>
+    </nav>
+  </header>
+  <main class="md:w-[85%] max-w-[900px] mx-auto flex -z-20 md:flex-row md:justify-between flex-col-reverse">
+    <section class="md:w-[43%] text-center md:text-left md:items-start md:block flex flex-col items-center  w-[80%] md:mx-0 mx-auto md:self-end">
+      <h2 class="font-bold text-3xl text-center md:text-left md:text-5xl my-8  md:mt-0 md:mb-8">
+        Make 
+        <span class="md:whitespace-nowrap">remote work</span>
+      </h2>
+      <p class="mb-8">
+        Get your team in sync, no matter your location. Streamline processes,create team rituals, and watch productivity soar.
+      </p>
+
+      <button class="mb-24 p-2 hover:border-2 hover:border-primary-gray hover:bg-primary-white hover:text-primary-dark rounded-lg lg bg-primary-dark text-primary-white w-max">Learn more</button>
+
+      <ul class="flex gap-6">
+        <li>
+          <img src="images/client-databiz.svg" alt="databiz icon">
+        </li>
+        <li>
+          <img src="images/client-audiophile.svg" alt="audiophile icon">
+        </li>
+        <li>
+          <img src="images/client-meet.svg" alt="meet icon">
+        </li>
+        <li>
+          <img src="images/client-maker.svg" alt="makr icon">
+        </li>
+      </ul>
+    </section>
+    <div class="md:w-[43%]">
+      <picture>
+        <source srcset="images/image-hero-mobile.png" media="(max-width: 678px)" />
+        <img src="images/image-hero-desktop.png" alt="MDN" class="h-full "/>
+      </picture>      
+    </div>
+  </main>
+</body>
+
+  <script src="./src/index.js"></script>
+</body>
+</html>

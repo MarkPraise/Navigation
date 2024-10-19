@@ -83,11 +83,11 @@ function toggleDropDown(flag,icon){
 function changeDropDownIcon(img,content){
     if(content.classList.contains("hidden")){
         img.src="../images/icon-arrow-up.svg";
-        img.alt ="close dropDown";
+        img.alt ="open dropDown";
     }
     else{
         img.src="../images/icon-arrow-down.svg"
-        img.alt ="open dropDown";
+        img.alt ="close dropDown";
     }
 }
 

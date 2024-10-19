@@ -5,59 +5,89 @@ document.addEventListener("readystatechange",(e)=>{
 })
 
 function initApp(){
-    const openMenuButton =document.getElementById("open-mobile-menu");
+    const features =document.getElementById("features");
+    const company =document.getElementById("company");
 
-    const closeMenuButton =document.getElementById("close-mobile-menu");
+    const mobileFeatures =document.getElementById("mobile-features");
+    const mobileCompany =document.getElementById("mobile-company");
 
-    const menu =document.getElementById("menu");
 
-    const features =document.querySelector("[data-dropdown=feature]");
-    const company =document.querySelector("[data-dropdown=company]");
+    [mobileFeatures,mobileCompany].forEach((item)=>{
+        item.addEventListener("click",(e)=>{
+            const li = e.target.closest("li");
 
-    const featureList =document.getElementById("Features-dropDown");
+            const content = li.querySelector("ul");
+            const img =li.querySelector("img");
+            
+            changeDropDownIcon(img,content);
 
-    const companyList =document.getElementById("company-dropDown");
+            content.classList.toggle("hidden");
 
-    openMenuButton.addEventListener("click",toggleNav);
-
-    closeMenuButton.addEventListener("click",toggleNav);
-
-    [features,company].forEach((element)=>{
-        element.addEventListener("click",(e)=>{
-            displayDropDown(e);
-            changeDropDownImage(e)
         })
-    });
+    })
 
+    const mobileMenu =document.getElementById("mobile-menu");
+    const openMobileMenu=document.getElementById("open-mobile-menu");
+    const closeMobileMenu = document.getElementById("close-mobile-menu");
+
+    openMobileMenu.addEventListener("click",()=>{
+        mobileMenu.classList.remove("hidden")
+    })
+    closeMobileMenu.addEventListener("click",()=>{
+        mobileMenu.classList.add("hidden")
+    })
+
+    let openDropDown;
+    let icon;
+
+    features.addEventListener("click",(e)=>{
+        openDropDown = e.target.closest("a");
+        icon = e.target.closest("a").querySelector("img");
+
+        toggleDropDown(openDropDown.id,icon);
+
+    })
+    
+    company.addEventListener("click",(e)=>{
+        openDropDown = e.target.closest("a");
+        icon =e.target.closest("a").querySelector("img");
+
+        toggleDropDown(openDropDown.id,icon);
+    })
+
+}
+
+function toggleDropDown(flag,icon){
+    const featuresDropDown =document.querySelector("[data-features]");
+    const companyDropDown =document.querySelector("[data-company]");
+    
+    if(flag ==="features"){
+
+        changeDropDownIcon(icon,featuresDropDown);
+
+        featuresDropDown.classList.toggle("hidden");
+        featuresDropDown.classList.toggle("block");
+
+    }
+    else{
+        changeDropDownIcon(icon,companyDropDown);
+
+        companyDropDown.classList.toggle("hidden");
+        companyDropDown.classList.toggle("block");
+
+    }
     
 
+}
 
-    function toggleNav(e){
-        menu.classList.toggle("hidden");
-        menu.classList.toggle("flex");
+function changeDropDownIcon(img,content){
+    if(content.classList.contains("hidden")){
+        img.src="../images/icon-arrow-up.svg"
+        img.alt ="close dropDown";
     }
-
-    function displayDropDown(e){
-
-        if(e.target.dataset.dropdown =="feature"){
-            featureList.classList.toggle("hidden");
-        }
-        else{
-            companyList.classList.toggle("hidden");
-        }
-    }
-
-    function changeDropDownImage(e){
-        let img = e.target.querySelector("img");
-        let ulList =  e.target.closest("li").querySelector("ul");
-
-
-        if(ulList.classList.contains("hidden")){
-            img.src="./images/icon-arrow-down.svg";
-        }
-        else{
-            img.src="./images/icon-arrow-up.svg"
-        }
+    else{
+        img.src="../images/icon-arrow-down.svg"
+        img.alt ="open dropDown";
     }
 }
 
